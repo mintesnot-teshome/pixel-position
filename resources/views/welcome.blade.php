@@ -16,8 +16,6 @@
     </div>
     </section>
 
-
-
     <section>
         <x-section-heading>Tags</x-section-heading>
 
