@@ -19,6 +19,6 @@ public function tags(){
 
 }
     public function employer(){
-        return $this->BelongsTo(Employer::class);
+        return $this->belongsTo(Employer::class);
             }
 }
