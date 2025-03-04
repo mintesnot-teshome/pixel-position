@@ -11,7 +11,7 @@
         <p class="text-sm text-gray-400 mt-auto">{{ $job->salary }}</p>
     </div>
     <div>
-        @foreach ( $job->tags  as $tag)
+        @foreach ( $job->tags as $tag)
         <x-tag :$tag />
         @endforeach
 
