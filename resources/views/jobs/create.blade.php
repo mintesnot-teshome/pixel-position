@@ -1,7 +1,7 @@
 <x-layout>
 <x-page-heading>New Job</x-page-heading>
 
-<x-forms.form method="POST" action="jobs">
+<x-forms.form method="POST" action="/jobs">
 
     <x-forms.input label="Title" name="title" placeholder="CEO" />
     <x-forms.input label="Salary" name="salary" placeholder="$90,000 USD" />
@@ -16,7 +16,7 @@
 
     <x-forms.checkbox label="Feature (Cost Extra)" name="featured"/>
     <x-forms.divider/>
-    
+
     <x-forms.input label="Tags(comma separated)" name="tags" placeholder="CEO, Ethiopia, Education" />
 
 
