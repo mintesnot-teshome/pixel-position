@@ -10,7 +10,6 @@ use Illuminate\Validation\Rules\Password;
 
 class RegisterUserController extends Controller
 {
-
     /**
      * Show the form for creating a new resource.
      */
@@ -26,15 +25,13 @@ class RegisterUserController extends Controller
     {
         $userAttributes = $request->validate([
             'name' => ['required'],
-            'email' => ['required', 'email' , 'unique:users,email'],
-            'password' =>['required', 'confirmed' , Password::min(6)]
-
-
+            'email' => ['required', 'email', 'unique:users,email'],
+            'password' => ['required', 'confirmed', Password::min(6)],
         ]);
-        $employerAttributes= $request->validate([
+
+        $employerAttributes = $request->validate([
             'employer' => ['required'],
             'logo' => ['required', File::types(['png', 'jpg', 'webp'])],
-
         ]);
 
         $user = User::create($userAttributes);
@@ -43,13 +40,11 @@ class RegisterUserController extends Controller
 
         $user->employer()->create([
             'name' => $employerAttributes['employer'],
-           'logo' => $logoPath
+            'logo' => $logoPath,
         ]);
 
         Auth::login($user);
 
         return redirect('/');
     }
-
-
 }

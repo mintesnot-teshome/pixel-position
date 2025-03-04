@@ -9,4 +9,4 @@
         $classes .= ' px-3 py-1 text-2xs';
     }
 @endphp
-<a href="/tags/{{ strToLower(string: $tag->name)  }}" class = "{{ $classes }}"=>{{ $tag->name }}</a>
+<a href="/tags/{{ strtoLower(string: $tag->name)  }}" class = "{{ $classes }}"=>{{ ucwords($tag->name) }}</a>

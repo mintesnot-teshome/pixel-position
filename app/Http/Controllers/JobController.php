@@ -10,6 +10,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
@@ -18,11 +19,11 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::all()->groupBy('featured');
+        $jobs = Job::latest()->with(['employer', 'tags'])->get()->groupBy('featured');
         return view('jobs.index',
     [
-        'featuredJobs' => $jobs[0],
         'jobs' => $jobs[1],
+        'featuredJobs' => $jobs[0],
         'tags' => Tag::all(),
     ]);
     }
@@ -38,7 +39,7 @@ class JobController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreJobRequest $request)
+    public function store(Request $request)
     {
         $attributes = $request->validate([
             'title' => ['required'],
