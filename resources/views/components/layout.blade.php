@@ -32,22 +32,22 @@
             </div>
 
             @auth
-            <div class="space-x-6 font-bold flex">
-                <a href="/jobs/create">Post a Job</a>
-                <form method="POST" action="/logout">
-                    @csrf
-                    @method('DELETE')
-                            <button>Log out</button>
-                        </form>
-            </div>
+                <div class="space-x-6 font-bold flex">
+                    <a href="/jobs/create">Post a Job</a>
+                    <form method="POST" action="/logout">
+                        @csrf
+                        @method('DELETE')
+                        <button>Log out</button>
+                    </form>
+                </div>
 
             @endauth
 
             @guest
-            <div class="space-x-6 font-bold">
-                <a href="/register">Sign Up</a>
-                <a href="/login">Login</a>
-            </div>
+                <div class="space-x-6 font-bold">
+                    <a href="/register">Sign Up</a>
+                    <a href="/login">Login</a>
+                </div>
             @endguest
         </nav>
         <main class="mt-10 max-w-[986px] mx-auto">{{ $slot }}</main>
